@@ -18,7 +18,7 @@ class CompleteToDoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = selectedToDo?.name
+        //titleLabel.text = selectedToDo?.name
         
 /*        if selectedToDo.important {
             titleLabel.text = "❗️" + selectedToDo.name
@@ -26,6 +26,13 @@ class CompleteToDoViewController: UIViewController {
             titleLabel.text = selectedToDo?.name
         }
 */
+    
+        if (selectedToDo?.important)! {
+            titleLabel.text = "❗️" + (selectedToDo?.name)!
+        } else {
+            titleLabel.text = selectedToDo?.name
+        }
+        
     }
     @IBAction func completeTapped(_ sender: Any) {
         
