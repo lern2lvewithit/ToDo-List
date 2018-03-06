@@ -26,13 +26,23 @@ class CompleteToDoViewController: UIViewController {
             titleLabel.text = selectedToDo?.name
         }
 */
-    
-        if (selectedToDo?.important)! {
-            titleLabel.text = "❗️" + (selectedToDo?.name)!
-        } else {
-            titleLabel.text = selectedToDo?.name
-        }
         
+/*
+         if (selectedToDo?.important)! {
+         titleLabel.text = "❗️" + (selectedToDo?.name)!
+         } else {
+         titleLabel.text = selectedToDo?.name
+         }
+*/
+        
+        if let selectedToDo = self.selectedToDo {
+            if selectedToDo.important {
+                titleLabel.text = "❗️" + (selectedToDo.name)!
+            } else {
+                titleLabel.text = selectedToDo.name
+            }
+        }
+    
     }
     @IBAction func completeTapped(_ sender: Any) {
         
