@@ -33,6 +33,7 @@ class ToDoTableViewController: UITableViewController {
         }
     }
     
+    /*
     func createToDos() -> [ToDo] {
         
         let eggs = ToDo()
@@ -47,7 +48,7 @@ class ToDoTableViewController: UITableViewController {
         
         return [eggs, dog, cheese]
     }
-    
+    */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDos.count
