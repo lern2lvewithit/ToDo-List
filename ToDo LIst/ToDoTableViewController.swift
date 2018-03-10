@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoTableViewController: UITableViewController {
     
@@ -24,11 +25,19 @@ class ToDoTableViewController: UITableViewController {
     func getToDos() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
             
-            if let coreDataToDos = try? context.fetch(ToDoCoreData.fetchRequest()) as? [ToDoCoreData] {
-                if let theToDos = coreDataToDos {
+            let fetchRequest: NSFetchRequest<ToDoCoreData> = ToDoCoreData.fetchRequest()
+            let descriptors = [NSSortDescriptor(key: "important", ascending: false)]
+            
+            fetchRequest.sortDescriptors = descriptors
+            
+            if let coreDataToDos = try? context.fetch(fetchRequest) {
+                /*if let theToDos = coreDataToDos {
                     toDos = theToDos
                     tableView.reloadData()
-                }
+                }*/
+                
+                toDos = coreDataToDos
+                tableView.reloadData()
             }
         }
     }
