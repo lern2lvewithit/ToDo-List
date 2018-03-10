@@ -31,11 +31,11 @@ class ToDoTableViewController: UITableViewController {
             fetchRequest.sortDescriptors = descriptors
             
             if let coreDataToDos = try? context.fetch(fetchRequest) {
-                /*if let theToDos = coreDataToDos {
+/*                if let theToDos = coreDataToDos {
                     toDos = theToDos
                     tableView.reloadData()
-                }*/
-                
+                }
+*/
                 toDos = coreDataToDos
                 tableView.reloadData()
             }
